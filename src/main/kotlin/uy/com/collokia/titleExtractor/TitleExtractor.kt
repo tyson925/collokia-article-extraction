@@ -1,4 +1,4 @@
-package com.collokia.titleExtractor
+package uy.com.collokia.titleExtractor
 
 import java.io.BufferedReader
 import java.io.IOException
@@ -10,7 +10,7 @@ import java.nio.charset.Charset
 import java.util.regex.Pattern
 
 
-public class TitleExtractor() : Serializable{
+public class TitleExtractor() : Serializable {
 
     private val TITLE_TAG = Pattern.compile("\\<title>(.*)\\</title>", Pattern.CASE_INSENSITIVE or Pattern.DOTALL)
 

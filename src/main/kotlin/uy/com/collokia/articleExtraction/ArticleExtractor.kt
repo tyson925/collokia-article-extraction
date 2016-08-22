@@ -1,7 +1,9 @@
-package com.collokia.articleExtraction
+package uy.com.collokia.articleExtraction
 
 import de.l3s.boilerpipe.BoilerpipeProcessingException
 import de.l3s.boilerpipe.extractors.CanolaExtractor
+import de.l3s.boilerpipe.extractors.DefaultExtractor
+import de.l3s.boilerpipe.sax.BoilerpipeSAXInput
 import org.slf4j.Logger
 import org.slf4j.LoggerFactory
 import org.xml.sax.InputSource
@@ -21,11 +23,11 @@ public fun extractContentBoiler(url : URL, logger : Logger): String {
 
         val input = InputSource(url.openStream())
 
-        val doc = de.l3s.boilerpipe.sax.BoilerpipeSAXInput(input).getTextDocument()
+        val doc = BoilerpipeSAXInput(input).getTextDocument()
 
         // perform the extraction/classification process on "doc"
         //de.l3s.boilerpipe.extractors.CanolaExtractor.INSTANCE.process(doc)
-        de.l3s.boilerpipe.extractors.DefaultExtractor.INSTANCE.process(doc)
+        DefaultExtractor.INSTANCE.process(doc)
 
 
         val content = CanolaExtractor.INSTANCE.getText(doc)
