@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 description 'collokia-data into ES'
 
 buildscript {
-    ext.kotlin_version = '1.0.1'
+    ext.kotlin_version = '1.0.3'
     repositories {
         maven {
             url "https://collokia.artifactoryonline.com/collokia/collokia-internal"
@@ -46,6 +46,13 @@ dependencies {
     compile "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
 
     compile group: 'org.slf4j', name: 'slf4j-api', version: '1.7.21'
+
+    configurations.all {
+        resolutionStrategy {
+            force 'xml-apis:xml-apis:1.4.01'
+        }
+    }
+
 
 }
 
