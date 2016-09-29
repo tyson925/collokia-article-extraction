@@ -16,14 +16,14 @@ import java.net.URL
 import java.net.UnknownHostException
 
 
-public fun extractContentBoiler(url : URL, logger : Logger): String {
+fun extractContentBoiler(url: URL, logger: Logger): String {
 
 
     val RET = try {
 
         val input = InputSource(url.openStream())
 
-        val doc = BoilerpipeSAXInput(input).getTextDocument()
+        val doc = BoilerpipeSAXInput(input).textDocument
 
         // perform the extraction/classification process on "doc"
         //de.l3s.boilerpipe.extractors.CanolaExtractor.INSTANCE.process(doc)
@@ -45,7 +45,7 @@ public fun extractContentBoiler(url : URL, logger : Logger): String {
         logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
         println("problem with url:\t${url}")
         "Exception"
-    } catch (e : IOException){
+    } catch (e: IOException) {
         logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
         println("problem with url:\t${url}")
         "Exception"
@@ -53,7 +53,7 @@ public fun extractContentBoiler(url : URL, logger : Logger): String {
         logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
         println("problem with url:\t${url}")
         "Exception"
-    } catch (e : UnknownHostException){
+    } catch (e: UnknownHostException) {
         logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
         println("problem with url:\t${url}")
         "Exception"
@@ -64,14 +64,11 @@ public fun extractContentBoiler(url : URL, logger : Logger): String {
 }
 
 
+class ArticleExtractor() : Serializable {
 
-public class ArticleExtractor() : Serializable {
-
-    companion object{
+    companion object {
         val LOG = LoggerFactory.getLogger(ArticleExtractor::class.java)
     }
-
-
 
 
 }
@@ -79,6 +76,6 @@ public class ArticleExtractor() : Serializable {
 fun main(args: Array<String>) {
 
     val ae = ArticleExtractor()
-    println(extractContentBoiler(URL("https://dzone.com/articles/harvard-develop-o-lab-to-encourage-experimentation"),ArticleExtractor.LOG))
+    println(extractContentBoiler(URL("https://dzone.com/articles/harvard-develop-o-lab-to-encourage-experimentation"), ArticleExtractor.LOG))
 }
 

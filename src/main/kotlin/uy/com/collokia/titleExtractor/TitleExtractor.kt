@@ -10,7 +10,7 @@ import java.nio.charset.Charset
 import java.util.regex.Pattern
 
 
-public class TitleExtractor() : Serializable {
+class TitleExtractor() : Serializable {
 
     private val TITLE_TAG = Pattern.compile("\\<title>(.*)\\</title>", Pattern.CASE_INSENSITIVE or Pattern.DOTALL)
 
@@ -99,10 +99,10 @@ public class TitleExtractor() : Serializable {
     /**
      * Class holds the content type and charset (if present)
      */
-    private class ContentType public constructor(headerValue: String?) {
+    private class ContentType constructor(headerValue: String?) {
 
-        public var contentType: String? = null
-        public var charsetName: String? = null
+        var contentType: String? = null
+        var charsetName: String? = null
 
         init {
             if (headerValue == null)
