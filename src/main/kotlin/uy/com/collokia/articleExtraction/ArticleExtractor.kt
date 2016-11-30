@@ -34,28 +34,28 @@ fun extractContentBoiler(url: URL, logger: Logger): String {
 
         content
     } catch (e: BoilerpipeProcessingException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     } catch (e: SAXException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     } catch (e: MalformedURLException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     } catch (e: IOException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     } catch (e: FileNotFoundException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     } catch (e: UnknownHostException) {
-        logger.error("problem with url:\t${url}\n ${e.stackTrace.joinToString("\n")}")
-        println("problem with url:\t${url}")
+        logger.error("problem with url:\t$url\n ${e.stackTrace.joinToString("\n")}")
+        println("problem with url:\t$url")
         "Exception"
     }
     RET

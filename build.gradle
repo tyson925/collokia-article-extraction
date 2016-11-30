@@ -4,7 +4,7 @@ version '1.0-SNAPSHOT'
 description 'collokia-data into ES'
 
 buildscript {
-    ext.kotlin_version = '1.0.3'
+    ext.kotlin_version = '1.0.5'
     repositories {
         maven {
             url "https://collokia.artifactoryonline.com/collokia/collokia-internal"
