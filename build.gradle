@@ -1,6 +1,6 @@
 description "NLP Utils for analyzing texts"
 group 'com.collokia'
-version '1.0-SNAPSHOT'
+version '1.0.1'
 description 'collokia-data into ES'
 
 buildscript {
@@ -17,6 +17,9 @@ buildscript {
         jcenter()
         mavenCentral()
         maven {
+            url 'http://dl.bintray.com/kotlin/kotlin-dev'
+        }
+        maven {
             url 'http://dl.bintray.com/kotlin/kotlin-eap'
         }
         maven {
@@ -31,6 +34,7 @@ buildscript {
 apply plugin: 'kotlin'
 apply plugin: 'java'
 apply plugin: 'idea'
+apply plugin: 'maven-publish'
 
 sourceCompatibility = JavaVersion.VERSION_1_8
 targetCompatibility = JavaVersion.VERSION_1_8
@@ -57,9 +61,26 @@ dependencies {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '2.8'
+    gradleVersion = '3.3'
 }
 repositories {
     mavenCentral()
     jcenter()
+}
+
+publishing {
+    publications {
+        mavenJava(MavenPublication) {
+            from components.java
+        }
+    }
+    repositories {
+        maven {
+            url "https://collokia.artifactoryonline.com/collokia/collokia-internal"
+            credentials {
+                username "${collokiaRepoUser}"
+                password "${collokiaRepoPass}"
+            }
+        }
+    }
 }
